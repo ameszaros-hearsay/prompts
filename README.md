@@ -1,1 +1,1 @@
-This repo contains agent prompts used while coding various applications with AI assistance.
+This repo contains LLM prompts and agent skills.
