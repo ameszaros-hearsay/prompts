@@ -106,7 +106,7 @@ In the log, do this in order:
 
 If you have a large log, use the helper script:
 
-- scripts/extract_log_snippet.py
+- node scripts/extract_log_snippet.js --log /path/to/log.txt --token MYBUG --context 80
 
 ### 5) Use Apex Replay Debugger for step through debugging
 
@@ -169,5 +169,5 @@ Your output should be:
 ## File references
 
 - Harness template: [assets/anonymous_apex_harness.apex](assets/anonymous_apex_harness.apex)
-- Log snippet helper: [scripts/extract_log_snippet.py](scripts/extract_log_snippet.py)
+- Log snippet helper: [scripts/extract_log_snippet.js](scripts/extract_log_snippet.js)
 - Deeper reference: [references/REFERENCE.md](references/REFERENCE.md)
