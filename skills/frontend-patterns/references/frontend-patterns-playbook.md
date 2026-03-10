@@ -92,7 +92,7 @@ Avoid normalization overhead for tiny one-shot payloads.
 Use to keep change detection and memoization reliable.
 Avoid in-place mutations in shared state.
 
-- Signals vs hooks/store.
+- Component-local reactive primitives vs shared stores.
 Use one primary reactivity model per app area.
 Avoid blending multiple paradigms without strict boundaries.
 
