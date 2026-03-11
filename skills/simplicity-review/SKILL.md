@@ -1,6 +1,6 @@
 ---
-name: code-review
-description: Perform a code review focused on simplifying the codebase while maintaining behavior and safety.
+name: simplicity-review
+description: Perform a simplicity-focused code review that removes needless complexity while preserving behavior and safety. Use when the user asks for a simplicity review, wants code simplification opportunities, or wants a review focused on deletion, collapsing abstractions, and easier reasoning.
 ---
 
 # Simplicity Code Review
