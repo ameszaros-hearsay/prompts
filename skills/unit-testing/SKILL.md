@@ -26,15 +26,6 @@ Good Unit Tests (GUTs) are specifications of behavior, not just correctness chec
 7. **Cover meaningful cases** - Common, simple, boundary, and error cases
 8. **Never trust an unseen failure** - See the test fail at least once
 
-## Public API Testing Mandate
-
-When generating unit tests, test strictly through the public interface of the class under test.
-
-1. **Prohibit reflection** - Never use reflection, internal accessors, friend/test-only visibility, or other workarounds to call or assert against `private` or `protected` members
-2. **Behavior over implementation** - Assert outputs, returned values, emitted events, and observable state changes available through public APIs
-3. **Refactoring over workarounds** - If logic seems untestable without private access, call it out as a testability smell and recommend a design change such as extraction, dependency injection, or a legitimate public observer
-4. **No internal mocking** - Do not spy on or mock internal methods of the class under test in order to bypass or assert private logic
-
 ## Naming Standard
 
 Use sentences that are either true or false. Prefer domain terms over test mechanics.
@@ -134,7 +125,6 @@ TEST "a_year_is_supported_if_positive"
 - Use `test_1`, `should_work`, or `works_as_expected`
 - Reach into `private` or `protected` members with reflection or test-only backdoors
 - Scatter by API method name alone
-- Mock or spy on internal methods of the subject under test
 - Copy paste near-duplicate tests
 - Hide domain rules inside numbers
 - Accept unreadable test reports
@@ -151,10 +141,9 @@ Run on every PR:
 - [ ] Parameterization used where multiple examples illustrate the same statement
 - [ ] Failing output would pinpoint the missing rule
 - [ ] No contradictions among test names
-- [ ] No reflection, internal accessors, or spying on the class under test
+- [ ] No reflection or internal accessors
 - [ ] Notable domain debates surfaced as separate tests
 - [ ] Unsupported inputs and supported domain boundaries are explicit
-- [ ] Logic that required private access was flagged as a design smell with a refactoring recommendation
 - [ ] Display names in reports are readable by humans
 
 ## Templates
@@ -200,11 +189,10 @@ For existing codebases:
 2. Rename tests to propositional statements without changing bodies
 3. Introduce nesting to remove repeated phrases
 4. Convert duplicate tests with different values to parameterized tests
-5. Replace reflection-based or spy-heavy tests with public API assertions
-6. Add explicit error and support-boundary tests
-7. Reorder suites from most common cases to least common
+5. Add explicit error and support-boundary tests
+6. Reorder suites from most common cases to least common
+7. Enforce the checklist in code review
 8. Treat hard-to-test private logic as a refactoring candidate, not a testing exception
-9. Enforce the checklist in code review
 
 ## Language Support
 
