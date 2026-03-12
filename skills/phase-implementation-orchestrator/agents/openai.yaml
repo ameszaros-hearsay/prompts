@@ -1,0 +1,4 @@
+interface:
+  display_name: "Phase Implementation Orchestrator"
+  short_description: "Execute multi-phase feature plans with slice review gates"
+  default_prompt: "Use when `./features/{feature-name}/PRD.md`, `RESEARCH.md`, and `PLAN.md` already exist and Codex must execute incomplete phases in order with slice-level implementation, review and fix loops, DOD updates, and one commit per accepted phase."
