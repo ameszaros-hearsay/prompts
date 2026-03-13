@@ -2,20 +2,49 @@ This repo contains LLM prompts and agent skills.
 
 ## Install Skills
 
-Install the skills from this repo into `~/.agents/skills` with symlinks:
+Launch the interactive installer:
 
 ```bash
 ./scripts/install_skills.sh
 ```
 
-The script is safe to re-run. It will:
+The interactive CLI:
+
+- defaults the target path to `~/.agents/skills`
+- lets you paste or edit any target directory path
+- refreshes the checkbox selection only after you press Enter in the path field, so typing stays responsive
+- matches the skills already linked from this repo in the last refreshed target directory
+- shows per-skill status for installed, missing, broken symlink, conflicting symlink, and real file/directory conflicts
+- lets you rename the target symlink when the default name is already occupied
+- exits with `Ctrl+D` instead of `q`, so `q` can be typed normally into text fields
+
+The installer is safe to re-run. It will:
 
 - create missing skill symlinks
-- leave correct symlinks unchanged
-- refresh existing symlinks if they point somewhere else
-- fail if a target already exists as a real file or directory instead of a symlink
+- remove repo-owned skill symlinks for rows you explicitly deselect in the interactive UI
+- leave correct repo-owned symlinks unchanged
+- refresh broken or conflicting symlinks when you choose that target name
+- refuse to overwrite real files or directories unless you choose a different symlink name
 
-To install into a different agents home, override `AGENTS_HOME`:
+To start the interactive installer on a different target directory:
+
+```bash
+./scripts/install_skills.sh --target /tmp/test-skills
+```
+
+For scriptable bulk install behavior, use non-interactive mode:
+
+```bash
+./scripts/install_skills.sh --non-interactive
+```
+
+Non-interactive installs still target `~/.agents/skills` by default. To use another location:
+
+```bash
+./scripts/install_skills.sh --non-interactive --target /tmp/test-skills
+```
+
+To change the default interactive target root with `AGENTS_HOME`:
 
 ```bash
 AGENTS_HOME=/tmp/test-agents ./scripts/install_skills.sh
